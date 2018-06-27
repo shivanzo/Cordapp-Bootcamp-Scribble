@@ -31,10 +31,24 @@ public class TokenIssueFlow extends FlowLogic<SignedTransaction> {
     public SignedTransaction call() throws FlowException {
         // We choose our transaction's notary (the notary prevents double-spends).
         Party notary = getServiceHub().getNetworkMapCache().getNotaryIdentities().get(0);
+        // We get a reference to our own identity.
+        Party issuer = getOurIdentity();
 
+        /* ============================================================================
+         *         TODO 1 - Create our TokenState to represent on-ledger tokens!
+         * ===========================================================================*/
+        // We create our new TokenState.
+        TokenState tokenState = null;
+
+        /* ============================================================================
+         *      TODO 3 - Build our token issuance transaction to update the ledger!
+         * ===========================================================================*/
         // We build our transaction.
-        TransactionBuilder transactionBuilder = null; // TODO: Build a valid transaction.
+        TransactionBuilder transactionBuilder = null;
 
+        /* ============================================================================
+         *          TODO 2 - Write our TokenContract to control token issuance!
+         * ===========================================================================*/
         // We check our transaction is valid based on its contracts.
         transactionBuilder.verify(getServiceHub());
 
