@@ -1,5 +1,6 @@
 package java_bootcamp;
 
+import net.corda.core.contracts.Contract;
 import net.corda.core.identity.CordaX500Name;
 import net.corda.testing.contracts.DummyState;
 import net.corda.testing.core.DummyCommandData;
@@ -14,6 +15,11 @@ public class ContractTests {
 //    private final TestIdentity bob = new TestIdentity(new CordaX500Name("Bob", "", "GB"));
 //    private MockServices ledgerServices = new MockServices(new TestIdentity(new CordaX500Name("TestId", "", "GB")));
 //    private TokenState tokenState = new TokenState(alice.getParty(), bob.getParty(), 1);
+
+//    @Test
+//    public void tokenContractImplementsContract() {
+//        assert(new TokenContract() instanceof Contract);
+//    }
 
 //    @Test
 //    public void tokenContractRequiresZeroInputsInTheTransaction() {

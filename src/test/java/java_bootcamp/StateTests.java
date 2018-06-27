@@ -12,7 +12,7 @@ public class StateTests {
     private final Party bob = new TestIdentity(new CordaX500Name("Bob", "", "GB")).getParty();
 
 //    @Test
-//    public void tokenStateHasIssuerOwnerAndAmountFieldsOfTheCorrectType() {
+//    public void tokenStateHasIssuerOwnerAndAmountParamsOfCorrectTypeInConstructor() {
 //        new TokenState(alice, bob, 1);
 //    }
 
