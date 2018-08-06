@@ -11,7 +11,8 @@ import net.corda.core.utilities.ProgressTracker;
  * See src/main/java/examples/IAmAFlowPair.java for an example. */
 @InitiatingFlow
 @StartableByRPC
-public class TokenIssueFlow extends FlowLogic<SignedTransaction> {
+public class TokenIssueFlow extends FlowLogic<SignedTransaction>
+{
     private final ProgressTracker progressTracker = new ProgressTracker();
     private final Party owner;
     private final int amount;
@@ -38,14 +39,16 @@ public class TokenIssueFlow extends FlowLogic<SignedTransaction> {
          *         TODO 1 - Create our TokenState to represent on-ledger tokens!
          * ===========================================================================*/
         // We create our new TokenState.
-        TokenState tokenState = null;
+        TokenState tokenState = new TokenState(issuer,owner,amount);
+        TokenContract.Issue command = new TokenContract.Issue();
 
         /* ============================================================================
          *      TODO 3 - Build our token issuance transaction to update the ledger!
          * ===========================================================================*/
         // We build our transaction.
-        TransactionBuilder transactionBuilder = null;
-
+        TransactionBuilder transactionBuilder = new TransactionBuilder(notary);
+        transactionBuilder.addOutputState(tokenState,TokenContract.ID);
+        transactionBuilder.addCommand(command);
         /* ============================================================================
          *          TODO 2 - Write our TokenContract to control token issuance!
          * ===========================================================================*/
